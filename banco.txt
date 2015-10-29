@@ -1,0 +1,10 @@
+create table funcionario (
+	id serial not null,
+	nome varchar (250) not null,
+	rg varchar(12) not null,
+	cpf varchar(12) not null,
+	telefone numeric,
+	endereco varchar(250) not null,
+	email varchar (250),
+	primary key (id)
+);
