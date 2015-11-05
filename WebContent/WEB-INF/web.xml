@@ -50,8 +50,8 @@
 	</filter>
 
 	<filter>
-		<filter-name>FilterIndex</filter-name>
-		<filter-class>util.FilterIndex</filter-class>
+		<filter-name>Filter</filter-name>
+		<filter-class>util.Filter</filter-class>
 	</filter>
 
 
@@ -63,23 +63,20 @@
 		<url-pattern>/CadastroUsuario.jsp</url-pattern>
 	</filter-mapping>
 	
-	<filter-mapping>
-		<filter-name>FilterAdmin</filter-name>
-		<url-pattern>/indexAdmin.jsp</url-pattern>
-	</filter-mapping>
+	
 
 	<filter-mapping>
-		<filter-name>FilterIndex</filter-name>
+		<filter-name>Filter</filter-name>
 		<url-pattern>/CadastroFuncionario.jsp</url-pattern>
 	</filter-mapping>
 
 	<filter-mapping>
-		<filter-name>FilterIndex</filter-name>
+		<filter-name>Filter</filter-name>
 		<url-pattern>/CadastroCliente.jsp</url-pattern>
 	</filter-mapping>
 
 	<filter-mapping>
-		<filter-name>FilterIndex</filter-name>
+		<filter-name>Filter</filter-name>
 		<url-pattern>/index.jsp</url-pattern>
 	</filter-mapping>
 

@@ -6,6 +6,7 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,24 +33,19 @@ public class LoginControle extends HttpServlet{
 
 		PrintWriter out = response.getWriter();
 		try {
-			String acao = request.getParameter("acao");
 			
-
-
-
 			//----------------LOGAR--------------------------------------------------------------------------------------------//
 			
 				String login = request.getParameter("txtLogin");
 				String senha = request.getParameter("txtSenha");
-				String acesso = request.getParameter("txtAcesso");
 				
 				Usuario usuario = new Usuario();
 				usuario.setLogin(login);
 				usuario.setSenha(senha);
-				usuario.setAcesso(acesso);
 				
 				LoginDao lDao = new LoginDao(); 
 				int retorno = lDao.verificaLogin(usuario); 
+				String acesso = lDao.recuperaAcesso(usuario);
 				RequestDispatcher rd;
 
 				if(retorno==1){
@@ -69,11 +65,10 @@ public class LoginControle extends HttpServlet{
 				
 
 
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 
-		}	
-
+		}
 	}
 	
 

@@ -24,13 +24,13 @@ import modelo.Usuario;
 
 
 @WebFilter("/Filter")
-public class FilterIndex implements javax.servlet.Filter {
+public class Filter implements javax.servlet.Filter {
 	private static final String JSP = ".jsp";
 
     /**
      * Default constructor. 
      */
-    public FilterIndex() {
+    public Filter() {
     }
 
 

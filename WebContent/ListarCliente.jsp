@@ -31,6 +31,7 @@
         			
            <input type="submit" name="acao" value="Atualizar">
          </form>
+         <a href="index.jsp"><input type="submit" value="Voltar"/></a>
          <td>
 					
     </body>

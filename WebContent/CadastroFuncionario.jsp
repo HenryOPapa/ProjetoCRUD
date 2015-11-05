@@ -26,5 +26,6 @@
  			<input type="submit" name="acao" value="Cadastrar"/> 
  			<input type="submit" name="acao" value="Listar"/>
 		</form>
+		<a href="index.jsp"><input type="submit" value="Voltar"/></a>
 	</div>
 </html>

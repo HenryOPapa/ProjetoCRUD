@@ -1,4 +1,3 @@
-
 package util;
 
 /**
@@ -24,13 +23,11 @@ import modelo.Usuario;
 
 
 @WebFilter("/Filter")
-public class FilterIndex implements javax.servlet.Filter {
+public class FilterAdmin implements javax.servlet.Filter {
 	private static final String JSP = ".jsp";
 
-    /**
-     * Default constructor. 
-     */
-    public FilterIndex() {
+   
+    public FilterAdmin() {
     }
 
 
@@ -46,10 +43,10 @@ public class FilterIndex implements javax.servlet.Filter {
 		HttpServletResponse rs = (HttpServletResponse) response;
 		HttpSession session = rq.getSession();
 		
-		if (session.getAttribute("usuario") != null){
+		if (session.getAttribute("acesso").equals("Administrador")){
 			chain.doFilter(request, response);
 		}else{
-			rs.sendRedirect("login.jsp");
+			rs.sendRedirect("index.jsp");
 		}
 		
 		

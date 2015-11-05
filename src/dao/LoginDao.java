@@ -8,6 +8,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.catalina.connector.Request;
+
+import com.sun.org.apache.xpath.internal.operations.Lt;
 
 import modelo.Usuario;
 import banco.ConectaBanco;
@@ -17,6 +22,7 @@ public class LoginDao extends ConectaBanco {
 	//conexão com o banco de dados
 			private Connection connection;
 			private ResultSet rs;
+			private String acesso;
 
 			public LoginDao() throws ClassNotFoundException{
 				this.connection = new ConectaBanco().getConnection();
@@ -27,19 +33,36 @@ public class LoginDao extends ConectaBanco {
 	public int verificaLogin(Usuario usuario) {
 		
 		try { 
-		 PreparedStatement stmt = connection.prepareStatement(SELECT); 
-		 stmt.setString(1,usuario.getLogin());
-		stmt.setString(2,usuario.getSenha());
-		this.rs = stmt.executeQuery();
-		if (rs.next()) { 
-		return 1; //Achou o login!
-		 } 
-		else
-		return 0; //Não achou o login! Login invalido!
-		 } catch (Exception e) { 
-		 e.printStackTrace(); 
-		return 0; 
-		 } 
-		 }
+			 PreparedStatement stmt = connection.prepareStatement(SELECT); 
+			 stmt.setString(1,usuario.getLogin());
+			stmt.setString(2,usuario.getSenha());
+			this.rs = stmt.executeQuery();
+			if (rs.next()) { 
+			return 1; //Achou o login!
+			 } 
+			else
+			return 0; //Não achou o login! Login invalido!
+			 } catch (Exception e) { 
+			 e.printStackTrace(); 
+			return 0; 
+			 } 
+			 }
 
-} 
+	
+	
+
+
+public String recuperaAcesso(Usuario usuario) throws SQLException{
+	PreparedStatement stmt = connection.prepareStatement(SELECT);
+	stmt.setString(1,usuario.getLogin());
+	stmt.setString(2,usuario.getSenha());
+	ResultSet result = stmt.executeQuery();
+	
+	while(result.next()){
+	acesso = result.getString("acesso");
+	
+	 }
+	return acesso;
+}
+
+}
