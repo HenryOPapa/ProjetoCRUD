@@ -75,7 +75,7 @@ public class ClienteControle extends HttpServlet {
 				//-------------LISTAR----------------------------------------------------------------------------------------------//
 
 
-				if(acao.equals("ListarCliente")){
+				if(acao.equals("Listar")){
 
 					ClienteDao cDAO = new ClienteDao();
 

@@ -76,7 +76,7 @@ public class FuncionarioControle extends HttpServlet{
 				//-------------LISTAR----------------------------------------------------------------------------------------------//
 
 
-				if(acao.equals("Listarfuncionario")){
+				if(acao.equals("Listar")){
 
 					FuncionarioDao cDAO = new FuncionarioDao();
 
