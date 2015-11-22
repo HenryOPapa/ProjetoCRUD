@@ -17,7 +17,7 @@
         %>
         
         <h1>Atualizar!</h1>
-        <form action="adicionafuncionario" method="post">
+        <form action="funcionarioControle" method="post">
         	
         	ID:<input type="hidden" name="txtId" value="<%=funcionario.getId()%>"/>
             Nome:<input type="text" name="txtNome" value="<%= funcionario.getNome()%>"/><br>

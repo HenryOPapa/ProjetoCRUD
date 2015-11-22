@@ -89,9 +89,9 @@ public class FuncionarioControle extends HttpServlet{
 
 				}else
 
-					//--------------CONSULTA----------------------------------------------------------------------------------------------//
+					//--------------Editar----------------------------------------------------------------------------------------------//
 
-					if(acao.equals("consultaPorId")){
+					if(acao.equals("Editar")){
 
 						int idfuncionario = Integer.parseInt(request.getParameter("txtId"));
 
@@ -159,7 +159,7 @@ public class FuncionarioControle extends HttpServlet{
 
 
 								RequestDispatcher rd = 
-										request.getRequestDispatcher("Index.jsp");
+										request.getRequestDispatcher("index.jsp");
 								rd.forward(request, response);
 							}
 

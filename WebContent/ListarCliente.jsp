@@ -39,7 +39,7 @@
 				<td><input type="text" name="txtTelefone" value="<%=c.getTelefone()%>"/></td>
 				<td><input type="text" name="txtEndereco" value="<%=c.getEndereco()%>"/></td>
 				<td><input type="text" name="txtEmail" value="<%=c.getEmail()%>"/></td>
-				<td><input type="submit" name="acao" value="Atualizar">
+				<td><input type="submit" name="acao" value="Editar">
 				<input type="submit" name="acao" value="Excluir"></td>
 
 				<%
