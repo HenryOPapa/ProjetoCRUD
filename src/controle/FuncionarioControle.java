@@ -80,10 +80,10 @@ public class FuncionarioControle extends HttpServlet{
 
 					FuncionarioDao cDAO = new FuncionarioDao();
 
-					List<Funcionario> listafuncionarios = cDAO.getLista();
+					List<Funcionario> listaFuncionarios = cDAO.getLista();
 
 					//add lista no request
-					request.setAttribute("listafuncionarios", listafuncionarios);
+					request.setAttribute("listaFuncionarios", listaFuncionarios);
 					RequestDispatcher rd = request.getRequestDispatcher("ListarFuncionario.jsp");
 					rd.forward(request, response);
 
