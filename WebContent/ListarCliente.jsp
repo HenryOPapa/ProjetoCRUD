@@ -32,13 +32,13 @@
 				%>
 			</tr>
 			<tr>
-				<td><%=c.getId()%></td>
-				<td><%=c.getNome()%></td>
-				<td><%=c.getRg()%></td>
-				<td><%=c.getCpf()%></td>
-				<td><%=c.getTelefone()%></td>
-				<td><%=c.getEndereco()%></td>
-				<td><%=c.getEmail()%></td>
+				<td><input type="text" name="txtId" value="<%=c.getId()%>"/></td>
+				<td><input type="text" name="txtNome" value="<%=c.getNome()%>"/></td>
+				<td><input type="text" name="txtRg" value="<%=c.getRg()%>"/></td>
+				<td><input type="text" name="txtCpf" value="<%=c.getCpf()%>"/></td>
+				<td><input type="text" name="txtTelefone" value="<%=c.getTelefone()%>"/></td>
+				<td><input type="text" name="txtEndereco" value="<%=c.getEndereco()%>"/></td>
+				<td><input type="text" name="txtEmail" value="<%=c.getEmail()%>"/></td>
 				<td><input type="submit" name="acao" value="Atualizar">
 				<input type="submit" name="acao" value="Excluir"></td>
 

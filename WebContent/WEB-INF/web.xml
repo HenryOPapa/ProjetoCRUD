@@ -74,6 +74,16 @@
 		<filter-name>Filter</filter-name>
 		<url-pattern>/CadastroCliente.jsp</url-pattern>
 	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Filter</filter-name>
+		<url-pattern>/ListarFuncionario.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Filter</filter-name>
+		<url-pattern>/ListarCliente.jsp</url-pattern>
+	</filter-mapping>
 
 	<filter-mapping>
 		<filter-name>Filter</filter-name>

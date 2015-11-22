@@ -46,7 +46,7 @@ public class ClienteControle extends HttpServlet {
 				String email = request.getParameter("txtEmail");
 
 
-						//monta um objeto contato
+				//monta um objeto contato
 				Cliente cliente = new Cliente();
 				cliente.setNome(nome);
 				cliente.setRg(rg);
@@ -65,7 +65,7 @@ public class ClienteControle extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				//add lista no request
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
@@ -92,7 +92,7 @@ public class ClienteControle extends HttpServlet {
 
 					if(acao.equals("consultaPorId")){
 
-						int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+						int idCliente = Integer.parseInt(request.getParameter("txtId"));
 
 						ClienteDao cDAO = new ClienteDao();
 
@@ -108,14 +108,15 @@ public class ClienteControle extends HttpServlet {
 						//-------------DELETAR----------------------------------------------------------------------------------------------//
 
 						if(acao.equals("Excluir"))	{
-							int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+							int idCliente = Integer.parseInt(request.getParameter("txtId"));
 							ClienteDao cDAO = new ClienteDao();
 
 							Cliente cliente = cDAO.consultaPorId(idCliente);
 							cDAO.remove(cliente);
 
+							List<Cliente> listaClientes = cDAO.getLista();
 
-							request.setAttribute("cliente", cliente);
+							request.setAttribute("listaClientes", listaClientes);
 							RequestDispatcher rd = 
 									request.getRequestDispatcher("ListarCliente.jsp");
 							rd.forward(request, response);
@@ -139,7 +140,7 @@ public class ClienteControle extends HttpServlet {
 								String telefone = request.getParameter("txtTelefone");
 								String endereco = request.getParameter("txtEndereco");
 								String email = request.getParameter("txtEmail");
-								
+
 
 
 								Cliente cliente = new Cliente();

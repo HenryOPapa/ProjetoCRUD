@@ -19,7 +19,7 @@ import dao.FuncionarioDao;
 import modelo.Funcionario;
 
 public class FuncionarioControle extends HttpServlet{
-	
+
 	private static final long serialVersionUID = 1L;
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +47,7 @@ public class FuncionarioControle extends HttpServlet{
 				String email = request.getParameter("txtEmail");
 
 
-						//monta um objeto contato
+				//monta um objeto contato
 				Funcionario funcionario = new Funcionario();
 				funcionario.setNome(nome);
 				funcionario.setRg(rg);
@@ -66,7 +66,7 @@ public class FuncionarioControle extends HttpServlet{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				//add lista no request
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
@@ -93,7 +93,7 @@ public class FuncionarioControle extends HttpServlet{
 
 					if(acao.equals("consultaPorId")){
 
-						int idfuncionario = Integer.parseInt(request.getParameter("idFuncionario"));
+						int idfuncionario = Integer.parseInt(request.getParameter("txtId"));
 
 						FuncionarioDao cDAO = new FuncionarioDao();
 
@@ -109,16 +109,18 @@ public class FuncionarioControle extends HttpServlet{
 						//-------------DELETAR----------------------------------------------------------------------------------------------//
 
 						if(acao.equals("Excluir"))	{
-							int idfuncionario = Integer.parseInt(request.getParameter("idFuncionario"));
+
+							int idfuncionario = Integer.parseInt(request.getParameter("txtId"));
 							FuncionarioDao cDAO = new FuncionarioDao();
+
 
 							Funcionario funcionario = cDAO.consultaPorId(idfuncionario);
 							cDAO.remove(funcionario);
 
+							List<Funcionario> listaFuncionarios = cDAO.getLista();
+							request.setAttribute("listaFuncionarios", listaFuncionarios);
 
-							request.setAttribute("funcionario", funcionario);
-							RequestDispatcher rd = 
-									request.getRequestDispatcher("ListarFuncionario.jsp");
+							RequestDispatcher rd = request.getRequestDispatcher("ListarFuncionario.jsp");
 							rd.forward(request, response);
 
 
@@ -140,7 +142,7 @@ public class FuncionarioControle extends HttpServlet{
 								String telefone = request.getParameter("txtTelefone");
 								String endereco = request.getParameter("txtEndereco");
 								String email = request.getParameter("txtEmail");
-								
+
 
 
 								Funcionario funcionario = new Funcionario();
