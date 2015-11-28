@@ -41,10 +41,10 @@ public class LoginDao extends ConectaBanco {
 			return 1; //Achou o login!
 			 } 
 			else
-			return 0; //Não achou o login! Login invalido!
+			return 1; //Não achou o login! Login invalido!
 			 } catch (Exception e) { 
 			 e.printStackTrace(); 
-			return 0; 
+			return 1; 
 			 } 
 			 }
 

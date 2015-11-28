@@ -88,9 +88,9 @@ public class ClienteControle extends HttpServlet {
 
 				}else
 
-					//--------------CONSULTA----------------------------------------------------------------------------------------------//
+					//--------------Editar----------------------------------------------------------------------------------------------//
 
-					if(acao.equals("consultaPorId")){
+					if(acao.equals("Editar")){
 
 						int idCliente = Integer.parseInt(request.getParameter("txtId"));
 
@@ -157,7 +157,7 @@ public class ClienteControle extends HttpServlet {
 
 
 								RequestDispatcher rd = 
-										request.getRequestDispatcher("Index.jsp");
+										request.getRequestDispatcher("index.jsp");
 								rd.forward(request, response);
 							}
 

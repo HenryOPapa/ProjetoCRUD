@@ -33,36 +33,35 @@ public class LoginControle extends HttpServlet{
 
 		PrintWriter out = response.getWriter();
 		try {
-			
-			//----------------LOGAR--------------------------------------------------------------------------------------------//
-			
-				String login = request.getParameter("txtLogin");
-				String senha = request.getParameter("txtSenha");
-				
-				Usuario usuario = new Usuario();
-				usuario.setLogin(login);
-				usuario.setSenha(senha);
-				
-				LoginDao lDao = new LoginDao(); 
-				int retorno = lDao.verificaLogin(usuario); 
-				String acesso = lDao.recuperaAcesso(usuario);
-				RequestDispatcher rd;
 
-				if(retorno==1){
-					
-					
-					HttpSession session = request.getSession();
-					 session.setAttribute("usuario", login);
-					 session.setAttribute("acesso", acesso);
-					rd = request.getRequestDispatcher("index.jsp");
-					rd.forward(request, response);
-										
-				}if(retorno==0){
-					
-					rd = request.getRequestDispatcher("login.jsp");
-					rd.forward(request, response);
-				}
+			//----------------LOGAR--------------------------------------------------------------------------------------------//
+
+			String login = request.getParameter("txtLogin");
+			String senha = request.getParameter("txtSenha");
+
+			Usuario usuario = new Usuario();
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
+
+			LoginDao lDao = new LoginDao(); 
+			int retorno = lDao.verificaLogin(usuario); 
+			String acesso = lDao.recuperaAcesso(usuario);
+			RequestDispatcher rd;
+
+			if(retorno==1){
 				
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario", login);
+				session.setAttribute("acesso", acesso);
+				rd = request.getRequestDispatcher("index.jsp");
+				rd.forward(request, response);
+
+			}if(retorno==0){
+
+				rd = request.getRequestDispatcher("login.jsp");
+				rd.forward(request, response);
+			}
+
 
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -70,6 +69,6 @@ public class LoginControle extends HttpServlet{
 
 		}
 	}
-	
+
 
 }

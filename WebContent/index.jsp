@@ -31,6 +31,9 @@ Hello,
 		<a href="CadastroUsuario.jsp"><input type="submit"
 			value="Usuário" /></a>
 	</div>
+	<div>
+		<a href="CadastroOrcamento.jsp"><input type="submit" value="Novo orçamento"></a>
+	</div>
 
 
 	<form action="logoffControle" method="post">

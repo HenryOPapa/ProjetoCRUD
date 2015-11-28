@@ -14,8 +14,9 @@
 <body>
 
 
-<h2>Página de Login das Tarefas</h2>
-    <form action="loginControle" method="post">
+
+    <form action="loginControle" align="center" method="post">
+    <h2>Login</h2>
       Login: <input type="text" name="txtLogin" /> <br /> 
       Senha: <input type="password" name="txtSenha" /> <br />
       <input type="submit" value="Logar" /> 
